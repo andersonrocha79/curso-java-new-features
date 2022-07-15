@@ -75,8 +75,16 @@ class Produto
 	public String toString() {
 		return "Produto [codigo=" + codigo + ", nome=" + nome + ", qtde=" + qtde + ", preco=" + preco + "]";
 	}
-
 	
+	public void imprime()
+	{
+		System.out.println("\nC贸digo: " 	+ codigo);
+		System.out.println("\nNome: " 		+ nome);
+		System.out.println("\nQuantidade: " + qtde);
+		System.out.println("\nPre莽o: " 		+ preco);
+		System.out.println("\nTotal: " 		+ getTotal());		
+	}
+
 }
 
 
@@ -106,17 +114,16 @@ public class Java8LambdaExpression
 			@Override
 			public void run() 
 			{
-				System.out.println("Thread 1 - sem lambda...");
+				System.out.println("Thread 1 - com classe an么nima...");
 			}
 		});
 		
 		Runnable run2 = new Runnable() 
-		{
-			
+		{			
 			@Override
 			public void run() 
 			{
-				System.out.println("Thread 2 - sem lambda...");				
+				System.out.println("Thread 2 - com classe an么nima...");				
 			}
 		};
 		
@@ -142,7 +149,7 @@ public class Java8LambdaExpression
 			@Override
 			public void falar() 
 			{
-				System.out.println("Pessoa falando - sem lambda");				
+				System.out.println("Pessoa falando - com classe an么nima");				
 			}
 		};		
 		p1.falar();	
@@ -162,7 +169,7 @@ public class Java8LambdaExpression
 			@Override
 			public void vender(Produto p, boolean exibeTotal) 
 			{
-				System.out.println("Vendendo o produto - sem lambda:\n" + p);	
+				System.out.println("Vendendo o produto - com classe an么nima:\n" + p);	
 				if (exibeTotal)
 				{
 					System.out.println("\nTotal: " + p.getTotal());
@@ -203,17 +210,17 @@ public class Java8LambdaExpression
 		System.out.println("ForEach 1 com lambda");
 		carrinho.forEach( p -> 
 		{
-			System.out.println("\nC骴igo: " 	+ p.getCodigo());
+			System.out.println("\nC贸digo: " 	+ p.getCodigo());
 			System.out.println("\nNome: " 		+ p.getNome());
 			System.out.println("\nQuantidade: " + p.getQtde());
-			System.out.println("\nPre鏾: " 		+ p.getNome());
+			System.out.println("\nPre莽o: " 		+ p.getPreco());
 			System.out.println("\nTotal: " 		+ p.getTotal());
 		});
 		
 		System.out.println("ForEach 2 com lambda");
 		carrinho.forEach( p -> System.out.println(p));
 		
-		System.out.println("ForEach 3 sem lambda");
+		System.out.println("ForEach 3 com classe an么nima");
 		Consumer<Produto> c = new Consumer<>() 
 		{
 			@Override
@@ -224,7 +231,7 @@ public class Java8LambdaExpression
 		};
 		carrinho.forEach(c);
 		
-		System.out.println("Sort sem lambda - c骴igo - decrescente");
+		System.out.println("Sort com classe an么nima - c贸digo - decrescente");
 		Comparator<Produto> ordemCodigo = new Comparator<>() 
 		{
 			@Override
@@ -236,7 +243,7 @@ public class Java8LambdaExpression
 		carrinho.sort(ordemCodigo);
 		carrinho.forEach( p -> System.out.println(p));		
 		
-		System.out.println("Sort com lambda - pre鏾 - crescente");
+		System.out.println("Sort com lambda - pre莽o - crescente");
 		carrinho.sort( (p1, p2) -> p1.getPreco().compareTo(p2.getPreco()));
 		carrinho.forEach( p -> System.out.println(p));		
 	
