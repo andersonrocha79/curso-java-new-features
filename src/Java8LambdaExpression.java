@@ -177,8 +177,8 @@ public class Java8LambdaExpression
 			}
 		};
 		
-		var p1 = new Produto(1, "teste A", 60, 500.0);
-		var p2 = new Produto(1, "teste B", 30, 650.0);
+		Produto p1 = new Produto(1, "teste A", 60, 500.0);
+		Produto p2 = new Produto(1, "teste B", 30, 650.0);
 		ve1.vender(p1, true);
 		ve1.vender(p2, true);
 		
@@ -221,7 +221,7 @@ public class Java8LambdaExpression
 		carrinho.forEach( p -> System.out.println(p));
 		
 		System.out.println("ForEach 3 com classe anônima");
-		Consumer<Produto> c = new Consumer<>() 
+		Consumer<Produto> c = new Consumer<Produto>() 
 		{
 			@Override
 			public void accept(Produto t) 
@@ -232,7 +232,7 @@ public class Java8LambdaExpression
 		carrinho.forEach(c);
 		
 		System.out.println("Sort com classe anônima - código - decrescente");
-		Comparator<Produto> ordemCodigo = new Comparator<>() 
+		Comparator<Produto> ordemCodigo = new Comparator<Produto>() 
 		{
 			@Override
 			public int compare(Produto o1, Produto o2) 
